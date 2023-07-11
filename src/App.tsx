@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./redux/store";
-import { decrement, increment } from "./redux/features/counter/counterSlice";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from "./redux/features/counter/counterSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +18,12 @@ function App() {
           onClick={() => dispatch(increment())}
         >
           Increment
+        </button>
+        <button
+          className="ring-2 ring-green-500 rounded p-1"
+          onClick={() => dispatch(incrementByAmount(5))}
+        >
+          Increment by value
         </button>
         <div>{count}</div>
         <button
