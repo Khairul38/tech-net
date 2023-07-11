@@ -19,7 +19,7 @@ export default function Checkout() {
   //! **
 
   return (
-    <div className="flex justify-center items-center h-[calc(100vh-80px)] gap-10 text-primary">
+    <div className="flex justify-center items-center h-[calc(100vh-80px)] gap-10 text-primary px-5">
       <div className="max-w-3xl w-full">
         <h1 className="mb-2">Delivery Information</h1>
         <div className="h-[60vh] border border-gray-300 rounded-md p-10 overflow-auto">
