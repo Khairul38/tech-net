@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./features/cart/cartSlice";
 import productReducer from "./features/products/productSlice";
 import { api } from "./api/apiSlice";
+import userReducer from "./features/user/userSlice";
 // import { createLogger } from "redux-logger";
 
 // const logger = createLogger();
@@ -11,6 +12,7 @@ export const store = configureStore({
   reducer: {
     cart: cartReducer,
     product: productReducer,
+    user: userReducer,
     [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>

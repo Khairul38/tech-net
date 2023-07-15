@@ -1,16 +1,17 @@
-import { createBrowserRouter } from 'react-router-dom';
-import App from '@/App';
-import Login from '@/pages/Login';
-import NotFound from '@/pages/NotFound';
-import Home from '@/pages/Home';
-import Products from '@/pages/Products';
-import Checkout from '@/pages/Checkout';
-import Signup from '@/pages/Signup';
-import ProductDetails from '@/pages/ProductDetails';
+import { createBrowserRouter } from "react-router-dom";
+import App from "@/App";
+import Login from "@/pages/Login";
+import NotFound from "@/pages/NotFound";
+import Home from "@/pages/Home";
+import Products from "@/pages/Products";
+import Checkout from "@/pages/Checkout";
+import Signup from "@/pages/Signup";
+import ProductDetails from "@/pages/ProductDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
@@ -18,29 +19,33 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/products',
+        path: "/products",
         element: <Products />,
       },
       {
-        path: '/product-details/:id',
+        path: "/product-details/:id",
         element: <ProductDetails />,
       },
       {
-        path: '/checkout',
-        element: <Checkout />,
+        path: "/checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
       },
     ],
   },
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/signup',
+    path: "/signup",
     element: <Signup />,
   },
   {
-    path: '*',
+    path: "*",
     element: <NotFound />,
   },
 ]);
